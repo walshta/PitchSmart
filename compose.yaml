@@ -1,0 +1,12 @@
+# Local dev environment for PitchSmart.
+# Each fragment is owned by the part of the system it belongs to;
+# this file only stitches them together onto one network.
+#
+#   docker compose up -d      start everything
+#   docker compose down       stop and remove containers
+name: pitchsmart
+
+include:
+  - infra/compose.yaml              # shared: Kafka + Kafka UI
+  - game-state-service/compose.yaml # owned by game-state: Redis
+  # - ingest-service/compose.yaml   # Phase 4: Postgres for the outbox

@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ingest-service
+  kafka:
+    bootstrap-servers: localhost:9092
+  docker:
+    compose:
+      # IntelliJ runs this from the module folder, so the root file is one level up.
+      file: ../compose.yaml
+      # Bring infra up if needed, but never stop it: other services share Kafka.
+      lifecycle-management: start-only
+
+server:
+  port: 8081
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

@@ -1,0 +1,12 @@
+# Infrastructure owned by game-state-service. No other service talks to this Redis.
+services:
+  redis:
+    image: redis:7.4-alpine
+    container_name: game-state-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
