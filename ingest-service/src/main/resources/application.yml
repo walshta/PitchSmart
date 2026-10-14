@@ -3,6 +3,9 @@ spring:
     name: ingest-service
   kafka:
     bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JacksonJsonSerializer
   docker:
     compose:
       # IntelliJ runs this from the module folder, so the root file is one level up.
