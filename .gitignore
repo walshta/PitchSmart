@@ -13,6 +13,7 @@ target/
 .idea/vcs.xml
 .idea/workspace.xml
 .idea/libraries/
+.idea/httpRequests/
 *.iws
 *.iml
 *.ipr
